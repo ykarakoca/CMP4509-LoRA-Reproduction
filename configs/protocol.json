@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "status": "locked",
+  "model_name": "FacebookAI/roberta-base",
+  "model_revision": "e2da8e2f811d1448a5b465c236feacd80ffbac7b",
+  "methods": [
+    "full",
+    "head",
+    "lora2",
+    "lora8"
+  ],
+  "seeds": [
+    17,
+    42,
+    123
+  ],
+  "official_run_count": 12,
+  "fresh_pretrained_model_per_run": true,
+  "reuse_tuning_runs_as_official": false,
+  "learning_rates": {
+    "full": 2e-05,
+    "head": 0.0005,
+    "lora2": 0.0005,
+    "lora8": 0.0005
+  },
+  "expected_trainable_parameters": {
+    "full": 124647170,
+    "head": 592130,
+    "lora2": 665858,
+    "lora8": 887042
+  },
+  "data": {
+    "dataset": "nyu-mll/glue",
+    "configuration": "sst2",
+    "split_seed": 2026,
+    "manifest_path": "configs/sst2_split_manifest.json",
+    "manifest_file_sha256": "87e339872001009404a051943c1f9096bda8f1093101c06535cf8568c5ba69ca",
+    "splits": {
+      "training": {
+        "size": 10000,
+        "sha256": "10750e0b890180e106e813be5199771466cdcd361b6ea0440d2e7795d10a6004"
+      },
+      "tuning": {
+        "size": 1000,
+        "sha256": "846a42ab1c6675c4de37484df21acd833c5b598eb33d4cd8ea324c8738296a89"
+      },
+      "final_evaluation": {
+        "size": 872,
+        "sha256": "e65dd602a24ca8a49a5bf587d5e4fa59752f0ba5f23686b988c6c5ce182f1df7"
+      }
+    }
+  },
+  "training": {
+    "epochs": 5,
+    "microbatch_size": 16,
+    "gradient_accumulation": 2,
+    "partial_group": "normalize_gradients_by_actual_group_sample_count",
+    "optimizer": "AdamW",
+    "weight_decay": 0.01,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "scheduler": "linear_warmup_then_decay",
+    "warmup_ratio": 0.06,
+    "warmup_steps": 94,
+    "optimizer_steps_per_epoch": 313,
+    "optimizer_steps_per_run": 1565,
+    "gradient_clipping": null,
+    "precision": "float32_no_amp",
+    "max_length": 128,
+    "padding": "dynamic_per_batch",
+    "drop_last": false,
+    "training_mode": "model.train_for_all_methods_including_head_only",
+    "dataloader": "fresh_separate_generator_seeded_with_run_seed",
+    "rng": "seed_before_model_init_and_reset_before_training",
+    "early_stopping": false
+  },
+  "lora": {
+    "implementation": "custom_LoRALinear",
+    "targets": [
+      "query",
+      "value"
+    ],
+    "encoder_layers": 12,
+    "alpha": 8,
+    "ranks": [
+      2,
+      8
+    ],
+    "train_classifier": true,
+    "rank_comparison_limitation": "alpha/r also changes with rank"
+  },
+  "checkpoint_selection": {
+    "dataset": "tuning",
+    "primary": "maximum_accuracy",
+    "tiebreaker": "minimum_loss",
+    "exact_tie": "earliest_epoch",
+    "format": "model_restoration_only_not_exact_training_resume"
+  },
+  "measurement": {
+    "execution": "one_fresh_python_process_per_official_run",
+    "gpu": "Tesla T4",
+    "training_time": "sum_of_synchronized_epoch_training_loop_seconds",
+    "training_time_excludes": [
+      "model_loading",
+      "evaluation",
+      "checkpoint_writes",
+      "reload"
+    ],
+    "gpu_memory": "maximum_training_peak_allocated_and_reserved_across_epochs",
+    "record_pre_model_gpu_memory_baseline": true,
+    "memory_scope": "PyTorch_allocator_not_total_physical_VRAM",
+    "cuda_matmul_allow_tf32": false,
+    "cudnn_allow_tf32": true
+  },
+  "final_evaluation": {
+    "split": "final_evaluation",
+    "samples": 872,
+    "start_condition": "all_12_selected_checkpoints_fixed_and_verified",
+    "metrics": [
+      "accuracy",
+      "loss"
+    ],
+    "aggregate": "mean_and_sample_std_ddof_1_across_three_seeds",
+    "retuning_after_final_scores": false
+  },
+  "tuning_evidence": {
+    "audit_sha256": "1426bd50122a10b97483906213edc60fb3a02d294732c69d68b9c49c32e4db3c",
+    "seed": 42,
+    "candidates_per_method": 2,
+    "seed_overlap_with_official_runs_disclosed": true
+  },
+  "packages": {
+    "torch": "2.14.1+cu130",
+    "transformers": "5.22.1",
+    "datasets": "4.8.5",
+    "scikit-learn": "1.6.1"
+  },
+  "source_sha256": {
+    "lora_linear.py": "fbf21a51bd7181973e090205cf83f2abdcd3c0a9d964dfa0a8fcc0e506ca4fe1",
+    "lora_injection.py": "51996ada8cbd2f18d3cfddaec2473fce7f070bc0fe68d07c64e35f7327a6d8c4"
+  },
+  "development_runner_sha256": "156ac7a16361947955e04469b9a7337c2685670a78d5f077693eae044cff5b48",
+  "public_packaging": {
+    "original_protocol_sha256": "d7cb070b76c9c0aae878c7340d65cfc1009521a129438820b9cf78016bf5551f",
+    "note": "Path portability only; scientific settings preserved. New runs are independent repetitions, not original evidence."
+  }
+}

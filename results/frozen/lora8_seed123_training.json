@@ -1,0 +1,283 @@
+{
+  "phase": "official",
+  "status": "completed",
+  "config": {
+    "method": "lora8",
+    "seed": 123,
+    "epochs": 5,
+    "learning_rate": 0.0005,
+    "batch_size": 16,
+    "gradient_accumulation": 2,
+    "weight_decay": 0.01,
+    "warmup_ratio": 0.06,
+    "precision": "float32_no_amp",
+    "max_length": 128,
+    "alpha": 8,
+    "rank": 8,
+    "train_samples": 10000,
+    "tune_samples": 1000,
+    "subset_policy": "full_manifest_splits",
+    "selection": "max_tuning_accuracy_then_min_loss_then_earliest",
+    "gradient_clipping": null
+  },
+  "model_revision": "e2da8e2f811d1448a5b465c236feacd80ffbac7b",
+  "split_manifest_sha256": "87e339872001009404a051943c1f9096bda8f1093101c06535cf8568c5ba69ca",
+  "environment": {
+    "python": "3.13.16 (main, Oct  1 2026, 15:40:24) [GCC 13.3.0]",
+    "packages": {
+      "torch": "2.14.1+cu130",
+      "transformers": "5.22.1",
+      "datasets": "4.8.5",
+      "scikit-learn": "1.6.1"
+    },
+    "gpu_name": "Tesla T4",
+    "gpu_total_memory_bytes": 15637086208,
+    "cuda_available": true,
+    "pytorch_cuda_build": "13.0",
+    "cuda_matmul_allow_tf32": false,
+    "cudnn_allow_tf32": true,
+    "source_sha256": {
+      "lora_linear.py": "fbf21a51bd7181973e090205cf83f2abdcd3c0a9d964dfa0a8fcc0e506ca4fe1",
+      "lora_injection.py": "51996ada8cbd2f18d3cfddaec2473fce7f070bc0fe68d07c64e35f7327a6d8c4"
+    },
+    "verified_base_revision": "e2da8e2f811d1448a5b465c236feacd80ffbac7b",
+    "planned_precision": "float32_no_amp"
+  },
+  "runtime_source_sha256": "156ac7a16361947955e04469b9a7337c2685670a78d5f077693eae044cff5b48",
+  "baseline_allocated_bytes": 0,
+  "baseline_reserved_bytes": 0,
+  "memory_measurement_scope": "Fresh-process training; PyTorch allocator measurements, not total physical VRAM",
+  "epochs": [
+    {
+      "epoch": 1,
+      "training": {
+        "samples": 10000,
+        "online_training_loss": 0.3957083040714264,
+        "online_training_accuracy": 0.8058,
+        "optimizer_steps": 313,
+        "steps_with_positive_lr": 312,
+        "last_gradient_norm": 1.1619982719421387,
+        "training_seconds": 42.11152570199988,
+        "peak_allocated_bytes": 1001237504,
+        "peak_reserved_bytes": 1182793728
+      },
+      "tuning": {
+        "samples": 1000,
+        "loss": 0.21793638581037522,
+        "accuracy": 0.92,
+        "prediction_counts": {
+          "0": 455,
+          "1": 545
+        },
+        "confusion_matrix": [
+          [
+            409,
+            34
+          ],
+          [
+            46,
+            511
+          ]
+        ],
+        "evaluation_seconds": 2.1468965260000914
+      }
+    },
+    {
+      "epoch": 2,
+      "training": {
+        "samples": 10000,
+        "online_training_loss": 0.2548501152634621,
+        "online_training_accuracy": 0.8971,
+        "optimizer_steps": 313,
+        "steps_with_positive_lr": 313,
+        "last_gradient_norm": 2.9352917671203613,
+        "training_seconds": 45.04285181299974,
+        "peak_allocated_bytes": 1002499072,
+        "peak_reserved_bytes": 1197473792
+      },
+      "tuning": {
+        "samples": 1000,
+        "loss": 0.2075052610039711,
+        "accuracy": 0.919,
+        "prediction_counts": {
+          "0": 474,
+          "1": 526
+        },
+        "confusion_matrix": [
+          [
+            418,
+            25
+          ],
+          [
+            56,
+            501
+          ]
+        ],
+        "evaluation_seconds": 2.449645185999998
+      }
+    },
+    {
+      "epoch": 3,
+      "training": {
+        "samples": 10000,
+        "online_training_loss": 0.2227601589024067,
+        "online_training_accuracy": 0.9112,
+        "optimizer_steps": 313,
+        "steps_with_positive_lr": 313,
+        "last_gradient_norm": 2.1085729598999023,
+        "training_seconds": 51.13621103500009,
+        "peak_allocated_bytes": 1001778176,
+        "peak_reserved_bytes": 1197473792
+      },
+      "tuning": {
+        "samples": 1000,
+        "loss": 0.2118062691092491,
+        "accuracy": 0.92,
+        "prediction_counts": {
+          "0": 477,
+          "1": 523
+        },
+        "confusion_matrix": [
+          [
+            420,
+            23
+          ],
+          [
+            57,
+            500
+          ]
+        ],
+        "evaluation_seconds": 2.640065897000113
+      }
+    },
+    {
+      "epoch": 4,
+      "training": {
+        "samples": 10000,
+        "online_training_loss": 0.19817535724937915,
+        "online_training_accuracy": 0.922,
+        "optimizer_steps": 313,
+        "steps_with_positive_lr": 313,
+        "last_gradient_norm": 2.0279157161712646,
+        "training_seconds": 49.81654394100042,
+        "peak_allocated_bytes": 1001237504,
+        "peak_reserved_bytes": 1197473792
+      },
+      "tuning": {
+        "samples": 1000,
+        "loss": 0.2006734137237072,
+        "accuracy": 0.931,
+        "prediction_counts": {
+          "0": 458,
+          "1": 542
+        },
+        "confusion_matrix": [
+          [
+            416,
+            27
+          ],
+          [
+            42,
+            515
+          ]
+        ],
+        "evaluation_seconds": 2.610810510999727
+      }
+    },
+    {
+      "epoch": 5,
+      "training": {
+        "samples": 10000,
+        "online_training_loss": 0.18914658000767232,
+        "online_training_accuracy": 0.927,
+        "optimizer_steps": 313,
+        "steps_with_positive_lr": 313,
+        "last_gradient_norm": 3.7147581577301025,
+        "training_seconds": 51.06899788199962,
+        "peak_allocated_bytes": 1001237504,
+        "peak_reserved_bytes": 1197473792
+      },
+      "tuning": {
+        "samples": 1000,
+        "loss": 0.19859446257352828,
+        "accuracy": 0.93,
+        "prediction_counts": {
+          "0": 455,
+          "1": 545
+        },
+        "confusion_matrix": [
+          [
+            414,
+            29
+          ],
+          [
+            41,
+            516
+          ]
+        ],
+        "evaluation_seconds": 2.6190571900001487
+      }
+    }
+  ],
+  "best": {
+    "epoch": 4,
+    "tuning": {
+      "samples": 1000,
+      "loss": 0.2006734137237072,
+      "accuracy": 0.931,
+      "prediction_counts": {
+        "0": 458,
+        "1": 542
+      },
+      "confusion_matrix": [
+        [
+          416,
+          27
+        ],
+        [
+          42,
+          515
+        ]
+      ],
+      "evaluation_seconds": 2.610810510999727
+    },
+    "checkpoint": {
+      "size_bytes": 3569117,
+      "sha256": "57cffc78bada2fceebb43eafa0fc17dbb2121a05c39ffa2e661616e6f16ec905",
+      "saved_state_tensors": 52
+    }
+  },
+  "protocol_sha256": "d7cb070b76c9c0aae878c7340d65cfc1009521a129438820b9cf78016bf5551f",
+  "official_runtime_sha256": "4874667d273f9d543993df352b6346c9f2dee4b77a9b9f85ef02204b169f5a3b",
+  "official_worker_sha256": "3c92fb4f2493bc82fcf190ad8885cf4c527a184eb0956658497ed6bf82ee4333",
+  "trainable_parameters": 887042,
+  "total_parameters": 124942082,
+  "planned_optimizer_steps": 1565,
+  "warmup_steps": 94,
+  "reload": {
+    "verified": true,
+    "reference_samples": 8,
+    "max_abs_logit_difference": 0.0,
+    "tuning": {
+      "samples": 1000,
+      "loss": 0.2006734137237072,
+      "accuracy": 0.931,
+      "prediction_counts": {
+        "0": 458,
+        "1": 542
+      },
+      "confusion_matrix": [
+        [
+          416,
+          27
+        ],
+        [
+          42,
+          515
+        ]
+      ],
+      "evaluation_seconds": 2.6060522639995725
+    }
+  },
+  "wall_seconds_including_setup_save_reload": 255.9648748709999
+}

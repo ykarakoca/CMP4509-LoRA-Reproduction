@@ -1,0 +1,19 @@
+{
+  "lora_linear.py_byte_identical": true,
+  "lora_injection.py_byte_identical": true,
+  "stage5_runtime.py_byte_identical": true,
+  "stage5_official_runtime.py_byte_identical": true,
+  "python_syntax": "PASS",
+  "notebook_code_syntax_and_no_fabricated_outputs": "PASS",
+  "reject_output_inside_repository": "PASS",
+  "no_original_drive_paths_in_public_text": "PASS",
+  "gpu_workflow": "NOT RUN: PyTorch/CUDA unavailable in packaging environment",
+  "dependency_installation": "NOT RUN",
+  "offline_prediction_audit": {
+    "status": "PASS",
+    "runs": 12,
+    "predictions": 10464,
+    "maximum_loss_recalculation_error": 8.469045464920555e-09,
+    "scope": "Saved evidence audit; does not load weights or independently verify labels against upstream data"
+  }
+}

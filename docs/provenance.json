@@ -1,0 +1,12 @@
+{
+  "original_protocol_sha256": "d7cb070b76c9c0aae878c7340d65cfc1009521a129438820b9cf78016bf5551f",
+  "public_protocol_sha256": "5433dadcd18642db88a4046e3d5a28e5a229c1b0fb74a96260a6eaa104a7eddf",
+  "unchanged_source_sha256": {
+    "lora_linear.py": "fbf21a51bd7181973e090205cf83f2abdcd3c0a9d964dfa0a8fcc0e506ca4fe1",
+    "lora_injection.py": "51996ada8cbd2f18d3cfddaec2473fce7f070bc0fe68d07c64e35f7327a6d8c4",
+    "stage5_official_runtime.py": "4874667d273f9d543993df352b6346c9f2dee4b77a9b9f85ef02204b169f5a3b",
+    "stage5_runtime.py": "156ac7a16361947955e04469b9a7337c2685670a78d5f077693eae044cff5b48"
+  },
+  "source_notebook_sha256": "4e8c65fe03be9743185136531579dee02266957735210aee0a8346cc1a040550",
+  "frozen_evidence": "Training and final metadata have private path fields removed. Predictions, summary CSV and figures are byte-preserved. Original source hashes refer to the private original bundle; public integrity is recorded separately."
+}

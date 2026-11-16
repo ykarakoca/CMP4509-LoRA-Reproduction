@@ -1,0 +1,7 @@
+# Install in a fresh GPU runtime; retain its working PyTorch/CUDA installation.
+# Candidate public environment: full GPU workflow still requires validation.
+transformers==5.22.1
+datasets==4.8.5
+scikit-learn==1.6.1
+numpy
+matplotlib

@@ -1,0 +1,51 @@
+{
+  "status": "completed",
+  "checkpoint": {
+    "method": "lora8",
+    "seed": 42,
+    "selected_epoch": 4,
+    "checkpoint_sha256": "c80a909efff0890e8c31b03c340f94cbc2d706a29830ce6a152512da52d1b597",
+    "checkpoint_size_bytes": 3569117,
+    "result_sha256": "1ce4705eb0a70c1f34fe37159e1742cd8afc584c5ae88eefe24698ecb87f5a31"
+  },
+  "provenance": {
+    "protocol_sha256": "d7cb070b76c9c0aae878c7340d65cfc1009521a129438820b9cf78016bf5551f",
+    "checkpoint_index_sha256": "08b4dffe9fa0125043a7c6ae2d66f97640c34e8e3fc76f716c8b92ca38fd988e",
+    "runtime_sha256": "4874667d273f9d543993df352b6346c9f2dee4b77a9b9f85ef02204b169f5a3b",
+    "evaluation_script_sha256": "d8e2e93bb0ac29e6040760f4aaa3d13a7a904b83f93e2ae0da6d65c484c2dde7",
+    "final_split_sha256": "e65dd602a24ca8a49a5bf587d5e4fa59752f0ba5f23686b988c6c5ce182f1df7"
+  },
+  "environment": {
+    "python": "3.13.16 (main, Oct  1 2026, 15:40:24) [GCC 13.3.0]",
+    "packages": {
+      "torch": "2.14.1+cu130",
+      "transformers": "5.22.1",
+      "datasets": "4.8.5",
+      "scikit-learn": "1.6.1"
+    },
+    "gpu_name": "Tesla T4",
+    "cuda_build": "13.0",
+    "precision": "float32_no_amp"
+  },
+  "metrics": {
+    "samples": 872,
+    "accuracy": 0.9254587155963303,
+    "confusion_matrix": [
+      [
+        388,
+        40
+      ],
+      [
+        25,
+        419
+      ]
+    ],
+    "prediction_counts": {
+      "0": 413,
+      "1": 459
+    },
+    "loss": 0.22604982654025796,
+    "evaluation_seconds": 2.1558461099999704
+  },
+  "predictions_sha256": "95ea09e6878a5578b828f791ca3d14adfc9f3a2f4d0c714414141db6ea4d69e4"
+}
